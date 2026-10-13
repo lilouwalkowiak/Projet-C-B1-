@@ -93,14 +93,16 @@ Le programme devra être testé afin de vérifier :
 
 ## Gestion des versions
 
-Le projet utilise Git pour conserver un historique des étapes du développement.
+Le projet utilise Git pour suivre les modifications et conserver un historique des versions. Le dépôt distant est hébergé sur GitHub.
 
-* `git status` : vérifier l'état des fichiers.
-* `git add` : préparer les fichiers à enregistrer.
-* `git commit -m "message"` : créer un point de sauvegarde.
+Commandes principales :
+
+* `git status` : consulter l'état des fichiers.
+* `git add` : préparer les modifications.
+* `git commit -m "message"` : enregistrer un point de sauvegarde local.
+* `git push` : envoyer les commits sur GitHub.
 * `git log --oneline` : consulter l'historique des commits.
 
-Le dépôt Git est actuellement local
 
 ## Références
 
