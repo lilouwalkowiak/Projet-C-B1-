@@ -29,7 +29,7 @@ styles_t *create_styles(
  * Les informations demandées sont la rotation, la couleur de remplissage,
  * la couleur du contour et le décalage de la forme.
  *
- * Précondition : la rotation saisie doit être un entier positif.
+ * Précondition : la rotation saisie doit être un entier.
  *
  * @return l'adresse du style créé, que la forme qui le reçoit devra libérer
  */
@@ -43,6 +43,11 @@ styles_t* ask_for_styles(void)
     return create_styles(rotation, fill_color, outline_color,translate);
 }
 
+/**
+ * Modifie les propriétés d'un style via un menu.
+ * 
+ * @param style Pointeur vers le style à modifier.
+ */
 void modify_styles(styles_t *styles)
 {
     int choice;

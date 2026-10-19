@@ -20,6 +20,11 @@ line_t *create_line(
     return line;
 }
 
+/**
+ * Demande à l'utilisateur de saisir les paramètres d'une ligne.
+ * 
+ * @return Pointeur vers la ligne créée à partir des saisies. 
+ */
 line_t* ask_for_line(void)
 {
     point_t* start = ask_for_point ("D'où le point de départ de la ligne doit commencer?\n");
@@ -28,7 +33,11 @@ line_t* ask_for_line(void)
 
     return create_line(start, finish, styles);
 }
-
+/**
+ * Modifie les propriétés d'une ligne via un menu.
+ * 
+ * @param line Pointeur vers la ligne à modifier.
+ */
 void modify_line(line_t *line)
 {
     int choice;

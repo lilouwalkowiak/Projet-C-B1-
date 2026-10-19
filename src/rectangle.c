@@ -23,6 +23,11 @@ rectangle_t *create_rectangle(
     return rectangle;
 }
 
+/**
+ * Demande à l'utilisateur de saisir les paramètres d'un rectangle.
+ * 
+ * @return Pointeur vers le rectangle créée à partir des saisies. 
+ */
 rectangle_t* ask_for_rectangle(void)
 {
     int length = ask_for_int ("Quelle longueur pour le rectangle souhaitez-vous? (Entrez un entier)\n");
@@ -33,6 +38,11 @@ rectangle_t* ask_for_rectangle(void)
     return create_rectangle(length, width, origine, styles);
 }
 
+/**
+ * Modifie les propriétés d'un rectangle via un menu.
+ * 
+ * @param rectangle Pointeur vers le rectangle à modifier.
+ */
 void modify_rectangle(rectangle_t *rectangle)
 {
     int choice;

@@ -5,8 +5,8 @@
  * 
  * @param rx le rayon horizontal
  * @param ry le rayon vertical
- * @param center le centre de l'ellipse
- * @param styles le style de l'ellipse
+ * @param center pointeur vers le point central de l'ellipse
+ * @param styles pointeur vers le style de l'ellipse
  * @return l'adresse de l'ellipse crée
  */
 ellipse_t *create_ellipse(int rx,
@@ -22,6 +22,11 @@ ellipse_t *create_ellipse(int rx,
     return ellipse;
 }
 
+/**
+ * Demande à l'utilisateur de saisir les paramètres d'une ellipse.
+ * 
+ * @return Pointeur vers l'ellipse créée à partir des saisies. 
+ */
 ellipse_t* ask_for_ellipse(void)
 {
     int rx = ask_for_int("Quelle mesure voulez-vous donner à votre rayon horizontal? (Entrez un entier)\n");
@@ -32,6 +37,11 @@ ellipse_t* ask_for_ellipse(void)
     return create_ellipse(rx, ry, center, styles);
 }
 
+/**
+ * Modifie les propriétés d'une ellipse via un menu.
+ * 
+ * @param ellipse Pointeur vers l'ellipse à modifier.
+ */
 void modify_ellipse(ellipse_t *ellipse)
 {
     int choice;

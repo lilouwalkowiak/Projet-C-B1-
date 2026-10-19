@@ -30,6 +30,11 @@ point_t* ask_for_point(char* message)
     return create_point(x,y);
 } 
 
+/**
+ * Modifie les coordonnées d'un point via un menu.
+ * 
+ * @param point Pointeur vers le point à modifier.
+ */
 void modify_point(point_t *point)
 {
     int choice;

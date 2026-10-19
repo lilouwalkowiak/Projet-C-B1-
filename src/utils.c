@@ -21,8 +21,7 @@ int ask_for_int(char *message)
  *
  * Affiche le message, puis lit un mot au clavier. Seuls les 49 premiers
  * caractères sont conservés. Le texte est copié dans une zone de mémoire
- * réservée avec malloc : l'appelant doit la libérer avec free (ou la
- * confier à un style, qui la libère dans free_styles).
+ * réservée avec malloc.
  *
  * @param message la question affichée avant la saisie
  * @return l'adresse du mot saisi (vide si la saisie échoue)

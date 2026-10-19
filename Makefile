@@ -10,7 +10,7 @@
 CC = gcc-16
 
 # Options de compilation : norme C99, avertissements activés.
-CFLAGS = -std=c99 -Wall -Wextra -Wpedantic
+CFLAGS = -std=c99 -Wall -Wextra -Wpedantic 
 
 # Fichiers à compiler : ajouter ici chaque nouveau fichier .c.
 SRC = main.c src/point.c src/style.c src/utils.c src/ellipse.c src/line.c src/rectangle.c
