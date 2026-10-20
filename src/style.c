@@ -33,36 +33,43 @@ styles_t *create_styles(
  *
  * @return l'adresse du style créé, que la forme qui le reçoit devra libérer
  */
-styles_t* ask_for_styles(void)
+styles_t *ask_for_styles(void)
 {
     int rotation = ask_for_int("Quelle est la rotation (en degrés) que vous souhaitez? (Entrez un entier)\n");
-    char* fill_color = ask_for_string("Quelle couleur de remplissage voulez-vous?\n");
-    char* outline_color = ask_for_string("Quelle couleur de contour voulez-vous?\n");
-    point_t* translate = ask_for_point("De combien voulez-vous déplacer la forme? (Entrez un entier)\n");
+    char *fill_color = ask_for_string("Quelle couleur de remplissage voulez-vous?\n");
+    char *outline_color = ask_for_string("Quelle couleur de contour voulez-vous?\n");
+    point_t *translate = ask_for_point("De combien voulez-vous déplacer la forme? (Entrez un entier)\n");
 
-    return create_styles(rotation, fill_color, outline_color,translate);
+    return create_styles(rotation, fill_color, outline_color, translate);
 }
 
 /**
  * Modifie les propriétés d'un style via un menu.
- * 
+ *
  * @param style Pointeur vers le style à modifier.
  */
 void modify_styles(styles_t *styles)
 {
     int choice;
-    do 
+    do
     {
         choice = ask_for_int("Chosi la modification du style : \n\t1. La couleur de remplissage\n\t2. La couleur du contour\n\t3. L'angle de rotation\n\t4. Décalage de la forme\n\t0.Quitter\n Choix : ");
         switch (choice)
         {
-        case 1: styles->fill_color = ask_for_string("Sélectionne la couleur de remplissage : "); break;
-        case 2: styles->outline_color = ask_for_string("Sélectionne la couleur du contour : "); break;
-        case 3: styles->rotation = ask_for_int("Sélectionne l'angle de la rotation : "); break;
-        case 4: modify_point(styles->translate); break;
+        case 1:
+            styles->fill_color = ask_for_string("Sélectionne la couleur de remplissage : ");
+            break;
+        case 2:
+            styles->outline_color = ask_for_string("Sélectionne la couleur du contour : ");
+            break;
+        case 3:
+            styles->rotation = ask_for_int("Sélectionne l'angle de la rotation : ");
+            break;
+        case 4:
+            modify_point(styles->translate);
+            break;
         }
-    }
-    while (choice != 0);
+    } while (choice != 0);
 }
 
 /**
@@ -79,10 +86,10 @@ void print_styles(styles_t *styles)
     printf(")");
 }
 
-/** Libère la mémoire d'un style et de son point de translation.  
- * 
+/** Libère la mémoire d'un style et de son point de translation.
+ *
  * @param styles le style à libérer (crée avec create_styles)
-*/
+ */
 void free_styles(styles_t *styles)
 {
     free(styles->fill_color);
