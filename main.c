@@ -10,12 +10,13 @@
 #include "includes/utils.h"
 #include "includes/shape.h"
 #include "includes/drawing.h"
+#include "includes/svg.h"
 
 /**
  * Affiche le menu principal avec des couleurs pastel.
  *
  * Chaque option est numérotée : 1 ajouter, 2 afficher, 3 modifier,
- * 4 supprimer et 0 quitter.
+ * 4 supprimer, 5 exporter en SVG et 0 quitter.
  */
 void afficher_menu(void)
 {
@@ -28,10 +29,10 @@ void afficher_menu(void)
     printf(MENTHE "  2. " RESET BLANC "Afficher les formes\n" RESET);
     printf(PECHE "  3. " RESET BLANC "Modifier une forme\n" RESET);
     printf(ROSE "  4. " RESET BLANC "Supprimer une forme\n" RESET);
+    printf(MENTHE "  5. " RESET BLANC "Exporter en SVG\n" RESET);
     printf(LAVANDE "  0. " RESET BLANC "Quitter\n" RESET);
 
     printf(LAVANDE "====================================\n" RESET);
-    printf(BLEU "Votre choix : " RESET);
 }
 
 /**
@@ -46,8 +47,10 @@ void afficher_menu(void)
 int main(void)
 {
     drawing_t *drawing = drawing_create();
+
     int choix = -1;
     int index;
+    char *filename;
 
     while (choix != 0)
     {
@@ -76,6 +79,12 @@ int main(void)
             drawing_print(drawing);
             index = ask_for_int("Supprimer une forme : quelle case ? (numéro de 0 à 49) : ");
             delete_shape(drawing, index);
+            break;
+
+        case 5:
+            filename = ask_for_string("Nom du fichier (termine par .svg, par exemple dessin.svg) : ");
+            drawing_export_svg(drawing, filename);
+            free(filename);
             break;
 
         case 0:

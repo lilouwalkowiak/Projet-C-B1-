@@ -15,6 +15,12 @@
 /** Nombre de cases du dessin : on peut ranger 50 formes au maximum. */
 #define SVG_SIZE 50
 
+/** Largeur par défaut du viewport. */
+#define DEFAULT_WIDTH 800
+
+/** Hauteur par défaut du viewport. */
+#define DEFAULT_HEIGHT 600
+
 /**
  * Crée un nouveau dessin vide.
  *
@@ -28,6 +34,7 @@ drawing_t *drawing_create(void)
     drawing_t *drawing = malloc(sizeof(drawing_t));
     drawing->capacity = SVG_SIZE;
     drawing->shapes = calloc(SVG_SIZE, sizeof(shape_t *));
+    drawing->viewport = create_viewport(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     return drawing;
 }
 
@@ -117,6 +124,9 @@ void drawing_print(drawing_t *drawing)
 {
     int found = 0;
 
+    print_viewport(drawing->viewport);
+    printf("\n");
+
     for (int i = 0; i < drawing->capacity; i++)
     {
         if (drawing->shapes[i] != NULL)
@@ -178,5 +188,6 @@ void drawing_free(drawing_t *drawing)
         }
     }
     free(drawing->shapes);
+    free_viewport(drawing->viewport);
     free(drawing);
 }

@@ -2,6 +2,7 @@
 #define DRAWING_H
 
 #include "shape.h"
+#include "viewport.h"
 
 /**
  * Représente un dessin qui contient plusieurs formes.
@@ -20,6 +21,10 @@ typedef struct drawing_s
      * Nombre de cases du tableau (chaque case est vide ou contient une forme).
      */
     int capacity;
+    /**
+     * Fenêtre du dessin : sa largeur et sa hauteur.
+     */
+    viewport_t *viewport;
 } drawing_t;
 
 /**

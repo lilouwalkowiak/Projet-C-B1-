@@ -13,7 +13,7 @@ CC = gcc-16
 CFLAGS = -std=c99 -Wall -Wextra -Wpedantic 
 
 # Fichiers à compiler : ajouter ici chaque nouveau fichier .c.
-SRC = main.c src/point.c src/style.c src/utils.c src/ellipse.c src/line.c src/rectangle.c src/shape.c src/drawing.c
+SRC = main.c src/point.c src/style.c src/utils.c src/ellipse.c src/line.c src/rectangle.c src/shape.c src/drawing.c src/viewport.c src/svg.c
 
 # Nom du programme créé.
 TARGET = main

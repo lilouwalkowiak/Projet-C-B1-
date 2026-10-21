@@ -1,0 +1,8 @@
+# Ce fichier dit à git quels fichiers il doit IGNORER.
+# Git ne les suit pas, ne les ajoute pas avec "git add ." et ne les envoie pas sur GitHub.
+# On y met les fichiers que l'ordinateur crée tout seul : ils ne font pas partie du code.
+
+# Le programme compilé.
+# Il est créé par "make build" à partir des fichiers .c.
+# On ne l'envoie pas : n'importe qui peut le recréer en lançant "make build".
+main
