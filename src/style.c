@@ -57,9 +57,11 @@ void modify_styles(styles_t *styles)
         switch (choice)
         {
         case 1:
+            free(styles->fill_color);
             styles->fill_color = ask_for_string("Sélectionne la couleur de remplissage : ");
             break;
         case 2:
+            free(styles->outline_color);
             styles->outline_color = ask_for_string("Sélectionne la couleur du contour : ");
             break;
         case 3:
@@ -88,7 +90,7 @@ void print_styles(styles_t *styles)
 
 /** Libère la mémoire d'un style et de son point de translation.
  *
- * @param styles le style à libérer (crée avec create_styles)
+ * @param styles le style à libérer (créé avec create_styles)
  */
 void free_styles(styles_t *styles)
 {

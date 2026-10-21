@@ -14,7 +14,7 @@ typedef struct point_s
  *
  * @param x l'abscisse du point
  * @param y l'ordonnée du point
- * @return l'adresse du point crée
+ * @return l'adresse du point créé
  */
 point_t *create_point(int x, int y);
 
@@ -24,11 +24,11 @@ point_t *create_point(int x, int y);
  * @param message le titre affiché avant de demander les coordonnées
  * @return l'adresse du point créé
  */
-point_t* ask_for_point(char* message);
+point_t *ask_for_point(char *message);
 
 /**
  * Modifie les coordonnées d'un point via un menu.
- * 
+ *
  * @param point Pointeur vers le point à modifier.
  */
 void modify_point(point_t *point);
@@ -41,9 +41,9 @@ void modify_point(point_t *point);
 void print_point(point_t *point);
 
 /** Libère la mémoire d'un point .
- * 
- * @param point le point à libérer (crée avec create_point)
-*/
+ *
+ * @param point le point à libérer (créé avec create_point)
+ */
 void free_point(point_t *point);
 
 #endif

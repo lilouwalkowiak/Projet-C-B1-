@@ -10,9 +10,14 @@
  */
 int ask_for_int(char *message)
 {
-    printf("%s", message);
     int v = 0;
-    scanf("%d", &v);
+
+    printf("%s", message);
+    while (scanf("%d", &v) != 1)
+    {
+        scanf("%*s");
+        printf("Ce n'est pas un nombre. Recommence : ");
+    }
     return v;
 }
 
@@ -26,10 +31,11 @@ int ask_for_int(char *message)
  * @param message la question affichée avant la saisie
  * @return l'adresse du mot saisi (vide si la saisie échoue)
  */
-char* ask_for_string(char *message)
+char *ask_for_string(char *message)
 {
     printf("%s", message);
-    char* text = malloc(sizeof(char) * 50);
+    char *text = malloc(sizeof(char) * 50);
+    text[0] = '\0';
     scanf("%49s", text);
     return text;
 }

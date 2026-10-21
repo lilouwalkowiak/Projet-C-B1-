@@ -16,27 +16,27 @@ typedef struct line_s
 } line_t;
 
 /** Créer une ligne droite en mémoire.
- * 
+ *
  * @param start le point de départ
  * @param finish le point d'arrivée
  * @param styles le style de la ligne
- * @return l'adresse de la ligne crée
+ * @return l'adresse de la ligne créée
  */
 line_t *create_line(
     point_t *start,
     point_t *finish,
     styles_t *styles);
-   
+
 /**
  * Demande à l'utilisateur de saisir les paramètres d'une ligne.
- * 
- * @return Pointeur vers la ligne créée à partir des saisies. 
+ *
+ * @return Pointeur vers la ligne créée à partir des saisies.
  */
-line_t* ask_for_line(void);
+line_t *ask_for_line(void);
 
 /**
  * Modifie les propriétés d'une ligne via un menu.
- * 
+ *
  * @param line Pointeur vers la ligne à modifier.
  */
 void modify_line(line_t *line);
@@ -50,7 +50,7 @@ void print_line(line_t *line);
 
 /**
  * Libère la mémoire d'une ligne, de ses deux points et de son style.
- * 
+ *
  * @param line la ligne à libérer (créée avec create_line)
  */
 void free_line(line_t *line);

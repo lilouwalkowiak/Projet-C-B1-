@@ -5,7 +5,7 @@
  *
  * @param x l'abscisse du point
  * @param y l'ordonnée du point
- * @return l'adresse du point crée
+ * @return l'adresse du point créé
  */
 point_t *create_point(int x, int y)
 {
@@ -21,18 +21,18 @@ point_t *create_point(int x, int y)
  * @param message le titre affiché avant de demander les coordonnées
  * @return l'adresse du point créé
  */
-point_t* ask_for_point(char* message)
+point_t *ask_for_point(char *message)
 {
     printf("%s", message);
     int x = ask_for_int("Quelle abscisse souhaitez-vous? (Entrez un entier)\n");
     int y = ask_for_int("Quelle ordonnée souhaitez-vous? (Entrez un entier)\n");
 
-    return create_point(x,y);
-} 
+    return create_point(x, y);
+}
 
 /**
  * Modifie les coordonnées d'un point via un menu.
- * 
+ *
  * @param point Pointeur vers le point à modifier.
  */
 void modify_point(point_t *point)
@@ -43,9 +43,12 @@ void modify_point(point_t *point)
         choice = ask_for_int("Choisi la modification :\n\t1. x L'abscisse\n\t2. y L'ordonnée\n\t0.Quitter\n Choix : ");
         switch (choice)
         {
-        case 1: point->x = ask_for_int("Selectionne l'abscisse x : "); break;
-        case 2: point->y = ask_for_int("Selectionne l'ordonnée y : "); break;
-        
+        case 1:
+            point->x = ask_for_int("Selectionne l'abscisse x : ");
+            break;
+        case 2:
+            point->y = ask_for_int("Selectionne l'ordonnée y : ");
+            break;
         }
     } while (choice != 0);
 }
@@ -57,13 +60,13 @@ void modify_point(point_t *point)
  */
 void print_point(point_t *point)
 {
-    printf("POINT (%d %d)\n", point->x, point->y);
+    printf("POINT (%d %d)", point->x, point->y);
 }
 
 /** Libère la mémoire d'un point .
- * 
- * @param point le point à libérer (crée avec create_point)
-*/
+ *
+ * @param point le point à libérer (créé avec create_point)
+ */
 void free_point(point_t *point)
 {
     free(point);

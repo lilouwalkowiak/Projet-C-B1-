@@ -5,9 +5,13 @@
 #include <stdlib.h>
 
 /**
- * Modifie les propriétés d'un style via un menu.
- * 
- * @param style Pointeur vers le style à modifier.
+ * Demande un nombre entier à l'utilisateur.
+ *
+ * Affiche le message, puis lit la réponse au clavier. Si l'utilisateur
+ * ne tape pas un nombre, la question est reposée.
+ *
+ * @param message la question affichée avant la saisie
+ * @return l'entier saisi par l'utilisateur
  */
 int ask_for_int(char *message);
 
@@ -21,6 +25,6 @@ int ask_for_int(char *message);
  * @param message la question affichée avant la saisie
  * @return l'adresse du mot saisi (vide si la saisie échoue)
  */
-char* ask_for_string(char *message);
+char *ask_for_string(char *message);
 
 #endif

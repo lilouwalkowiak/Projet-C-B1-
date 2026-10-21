@@ -1,5 +1,5 @@
-#ifndef STYLES
-#define STYLES
+#ifndef STYLE_H
+#define STYLE_H
 
 #include "point.h"
 
@@ -28,7 +28,7 @@ styles_t *create_styles(
     int rotation,
     char *fill_color,
     char *outline_color,
-    point_t *translate);   
+    point_t *translate);
 
 /**
  * Demande à l'utilisateur les informations d'un style, puis crée le style.
@@ -40,13 +40,12 @@ styles_t *create_styles(
  *
  * @return l'adresse du style créé, que la forme qui le reçoit devra libérer
  */
-styles_t* ask_for_styles(void);
-
+styles_t *ask_for_styles(void);
 
 /**
  * Modifie les propriétés d'un style via un menu.
- * 
- * @param style Pointeur vers le style à modifier.
+ *
+ * @param styles Pointeur vers le style à modifier.
  */
 void modify_styles(styles_t *styles);
 
@@ -58,11 +57,10 @@ void modify_styles(styles_t *styles);
  */
 void print_styles(styles_t *styles);
 
-/** Libère la mémoire d'un style et de son point de translation.  
- * 
- * @param styles le style à libérer (crée avec create_styles)
-*/
+/** Libère la mémoire d'un style et de son point de translation.
+ *
+ * @param styles le style à libérer (créé avec create_styles)
+ */
 void free_styles(styles_t *styles);
-
 
 #endif

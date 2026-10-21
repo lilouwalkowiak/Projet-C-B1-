@@ -22,12 +22,12 @@ typedef struct ellipse_s
 } ellipse_t;
 
 /** Créer une ellipse en mémoire.
- * 
+ *
  * @param rx le rayon horizontal
  * @param ry le rayon vertical
  * @param center pointeur vers le point central de l'ellipse
  * @param styles pointeur vers le style de l'ellipse
- * @return l'adresse de l'ellipse crée
+ * @return l'adresse de l'ellipse créée
  */
 ellipse_t *create_ellipse(int rx,
                           int ry,
@@ -36,14 +36,14 @@ ellipse_t *create_ellipse(int rx,
 
 /**
  * Demande à l'utilisateur de saisir les paramètres d'une ellipse.
- * 
- * @return Pointeur vers l'ellipse créée à partir des saisies. 
+ *
+ * @return Pointeur vers l'ellipse créée à partir des saisies.
  */
-ellipse_t* ask_for_ellipse(void);
+ellipse_t *ask_for_ellipse(void);
 
 /**
  * Modifie les propriétés d'une ellipse via un menu.
- * 
+ *
  * @param ellipse Pointeur vers l'ellipse à modifier.
  */
 void modify_ellipse(ellipse_t *ellipse);
@@ -56,13 +56,12 @@ void modify_ellipse(ellipse_t *ellipse);
  */
 void print_ellipse(ellipse_t *ellipse);
 
-/** 
- * 
- * Libère la mémoire allouée pour une ellipse, son centre et ses styles. 
- * 
+/**
+ *
+ * Libère la mémoire allouée pour une ellipse, son centre et ses styles.
+ *
  * @param ellipse Pointeur vers l'ellipse à libérer.
  */
 void free_ellipse(ellipse_t *ellipse);
-
 
 #endif

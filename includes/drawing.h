@@ -17,10 +17,8 @@ typedef struct drawing_s
      */
     shape_t **shapes;
     /**
-     * Nombre maximum de formes que le tableau peut contenir
-     * avant de devoir agrandir sa taille.
+     * Nombre de cases du tableau (chaque case est vide ou contient une forme).
      */
-
     int capacity;
 } drawing_t;
 
@@ -44,7 +42,7 @@ void insert_shape(drawing_t *drawing, int index);
  * Modifie une forme existante dans le dessin.
  *
  * @param drawing Pointeur vers le dessin.
- * @param index L'index où insérer la forme.
+ * @param index L'index de la forme à modifier.
  */
 void modify_shape(drawing_t *drawing, int index);
 
@@ -60,7 +58,7 @@ void drawing_print(drawing_t *drawing);
  * Supprime une forme existante dans le dessin.
  *
  * @param drawing Pointeur vers le dessin.
- * @param index L'index où insérer la forme.
+ * @param index L'index de la forme à supprimer.
  */
 void delete_shape(drawing_t *drawing, int index);
 
