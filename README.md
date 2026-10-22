@@ -133,7 +133,6 @@ Les couleurs doivent être des noms ou codes SVG valides (`red`, `blue`, `green`
 * **Mémoire** : chaque forme libère ce qu'elle contient (points et styles), puis elle-même. Le dessin libère ses formes, son tableau, son viewport, puis lui-même.
 
 ## Difficultés rencontrées
-## Difficultés rencontrées
 
 **Démarrer le projet.** Je n'avais aucune base en algorithmique ni en langage C, et je ne savais pas par où commencer. Je me sentais perdue, j'ai eu beaucoup d'angoisse et je pensais que je n'y arriverais jamais. Je ne connaissais pas du tout les fonctions, ni comment elles s'utilisent.
 

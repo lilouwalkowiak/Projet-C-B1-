@@ -40,14 +40,14 @@ void modify_point(point_t *point)
     int choice;
     do
     {
-        choice = ask_for_int("Choisi la modification :\n\t1. x L'abscisse\n\t2. y L'ordonnée\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int("Choisis la modification :\n\t1. x L'abscisse\n\t2. y L'ordonnée\n\t0.Quitter\n Choix : ");
         switch (choice)
         {
         case 1:
-            point->x = ask_for_int("Selectionne l'abscisse x : ");
+            point->x = ask_for_int("Sélectionne l'abscisse x : ");
             break;
         case 2:
-            point->y = ask_for_int("Selectionne l'ordonnée y : ");
+            point->y = ask_for_int("Sélectionne l'ordonnée y : ");
             break;
         }
     } while (choice != 0);
@@ -63,7 +63,7 @@ void print_point(point_t *point)
     printf("POINT (%d %d)", point->x, point->y);
 }
 
-/** Libère la mémoire d'un point .
+/** Libère la mémoire d'un point.
  *
  * @param point le point à libérer (créé avec create_point)
  */

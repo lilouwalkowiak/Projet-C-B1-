@@ -14,7 +14,7 @@ typedef struct drawing_s
     /**
      * Tableau de pointeurs vers les formes du dessin.
      * Chaque case contient l'adresse d'une forme :
-     * une ellipse, un rectangle ou une ligne.
+     * une ellipse, un rectangle, une ligne, une polyligne ou un polygone.
      */
     shape_t **shapes;
     /**

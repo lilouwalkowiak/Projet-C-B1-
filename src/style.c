@@ -7,7 +7,7 @@
  * @param fill_color la couleur de remplissage
  * @param outline_color la couleur du contour
  * @param translate le décalage de la forme
- * @return l'adresse du style crée
+ * @return l'adresse du style créé
  */
 styles_t *create_styles(
     int rotation,
@@ -46,14 +46,14 @@ styles_t *ask_for_styles(void)
 /**
  * Modifie les propriétés d'un style via un menu.
  *
- * @param style Pointeur vers le style à modifier.
+ * @param styles Pointeur vers le style à modifier.
  */
 void modify_styles(styles_t *styles)
 {
     int choice;
     do
     {
-        choice = ask_for_int("Chosi la modification du style : \n\t1. La couleur de remplissage\n\t2. La couleur du contour\n\t3. L'angle de rotation\n\t4. Décalage de la forme\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int("Chosis la modification du style : \n\t1. La couleur de remplissage\n\t2. La couleur du contour\n\t3. L'angle de rotation\n\t4. Décalage de la forme\n\t0.Quitter\n Choix : ");
         switch (choice)
         {
         case 1:

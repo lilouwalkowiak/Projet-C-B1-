@@ -6,6 +6,8 @@
 #include "ellipse.h"
 #include "rectangle.h"
 #include "line.h"
+#include "polyline.h"
+#include "polygon.h"
 #include "shape.h"
 #include "drawing.h"
 
@@ -48,10 +50,26 @@ void export_rectangle_svg(FILE *file, rectangle_t *rectangle);
 void export_line_svg(FILE *file, line_t *line);
 
 /**
+ * Écrit une polyligne dans un fichier SVG.
+ *
+ * @param file le fichier SVG ouvert en écriture
+ * @param polyline la polyligne à écrire
+ */
+void export_polyline_svg(FILE *file, polyline_t *polyline);
+
+/**
+ * Écrit un polygone dans un fichier SVG.
+ *
+ * @param file le fichier SVG ouvert en écriture
+ * @param polygon le polygone à écrire
+ */
+void export_polygon_svg(FILE *file, polygon_t *polygon);
+
+/**
  * Écrit une forme dans un fichier SVG.
  *
  * Appelle la fonction d'export qui correspond au type de la forme
- * (export_ellipse_svg, export_rectangle_svg ou export_line_svg).
+ * (export_ellipse_svg, export_rectangle_svg, export_line_svg, export_polyline_svg ou export_polygon_svg).
  *
  * @param file le fichier SVG ouvert en écriture
  * @param shape la forme à écrire

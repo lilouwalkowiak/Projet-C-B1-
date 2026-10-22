@@ -47,7 +47,7 @@ void modify_ellipse(ellipse_t *ellipse)
     int choice;
     do
     {
-        choice = ask_for_int("Choisi la modification de ton ellipse : \n\t1. Le centre\n\t2. Le style\n\t3. Le premier rayon\n\t4. Le second rayon\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int("Choisis la modification de ton ellipse : \n\t1. Le centre\n\t2. Le style\n\t3. Le premier rayon\n\t4. Le second rayon\n\t0.Quitter\n Choix : ");
         switch (choice)
         {
         case 1:
@@ -57,10 +57,10 @@ void modify_ellipse(ellipse_t *ellipse)
             modify_styles(ellipse->styles);
             break;
         case 3:
-            ellipse->rx = ask_for_int("Choisi le premier rayon de l'ellipse : ");
+            ellipse->rx = ask_for_int("Choisis le premier rayon de l'ellipse : ");
             break;
         case 4:
-            ellipse->ry = ask_for_int("Choisi le second rayon de l'ellipse : ");
+            ellipse->ry = ask_for_int("Choisis le second rayon de l'ellipse : ");
             break;
         }
 

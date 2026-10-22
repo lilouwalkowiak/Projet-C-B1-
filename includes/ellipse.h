@@ -57,10 +57,9 @@ void modify_ellipse(ellipse_t *ellipse);
 void print_ellipse(ellipse_t *ellipse);
 
 /**
+ * Libère la mémoire d'une ellipse, de son centre et de son style.
  *
- * Libère la mémoire allouée pour une ellipse, son centre et ses styles.
- *
- * @param ellipse Pointeur vers l'ellipse à libérer.
+ * @param ellipse l'ellipse à libérer (créée avec create_ellipse)
  */
 void free_ellipse(ellipse_t *ellipse);
 

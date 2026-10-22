@@ -28,7 +28,7 @@ line_t *create_line(
 line_t *ask_for_line(void)
 {
     point_t *start = ask_for_point("D'où le point de départ de la ligne doit commencer?\n");
-    point_t *finish = ask_for_point("D'où le point de d'arrivée de la ligne doit finir?\n");
+    point_t *finish = ask_for_point("D'où le point d'arrivée de la ligne doit finir?\n");
     styles_t *styles = ask_for_styles();
 
     return create_line(start, finish, styles);
@@ -43,7 +43,7 @@ void modify_line(line_t *line)
     int choice;
     do
     {
-        choice = ask_for_int("Choisi la modification de la ligne : \n\t1. Le point de départ\n\t2. Le point d'arrivée\n\t3. Le style\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int("Choisis la modification de la ligne : \n\t1. Le point de départ\n\t2. Le point d'arrivée\n\t3. Le style\n\t0.Quitter\n Choix : ");
         switch (choice)
         {
         case 1:
@@ -66,7 +66,7 @@ void modify_line(line_t *line)
  */
 void print_line(line_t *line)
 {
-    printf("LINE");
+    printf("LINE(");
     print_point(line->start);
     print_point(line->finish);
     print_styles(line->styles);

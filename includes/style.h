@@ -22,7 +22,7 @@ typedef struct styles_s
  * @param fill_color la couleur de remplissage
  * @param outline_color la couleur du contour
  * @param translate le décalage de la forme
- * @return l'adresse du style crée
+ * @return l'adresse du style créé
  */
 styles_t *create_styles(
     int rotation,

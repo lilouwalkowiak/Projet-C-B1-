@@ -1,6 +1,6 @@
 /**
- * Représentation d'une forme quelconque du dessin (ellipse, rectangle
- * ou ligne), pour pouvoir les ranger toutes dans une même liste.
+ * Représentation d'une forme quelconque du dessin (ellipse, rectangle, ligne,
+ * polyligne ou free_polygon), pour pouvoir les ranger toutes dans une même liste.
  */
 
 #ifndef SHAPE_H
@@ -11,20 +11,24 @@
 #include "ellipse.h"
 #include "rectangle.h"
 #include "line.h"
+#include "polyline.h"
+#include "polygon.h"
 
 /** Type d'une forme du dessin. */
 typedef enum
 {
     SHAPE_ELLIPSE,
     SHAPE_RECTANGLE,
-    SHAPE_LINE
+    SHAPE_LINE,
+    SHAPE_POLYLINE,
+    SHAPE_POLYGON
 } shape_type_t;
 
 /**
  * Représente une forme quelconque du dessin.
  *
  * Le champ type indique quelle forme est réellement stockée. Une seule
- * des trois adresses de l'union est utilisée à la fois.
+ * des cinq adresses de l'union est utilisée à la fois.
  */
 typedef struct shape_s
 {
@@ -34,6 +38,8 @@ typedef struct shape_s
         ellipse_t *ellipse;
         rectangle_t *rectangle;
         line_t *line;
+        polyline_t *polyline;
+        polygon_t *polygon;
     } data;
 } shape_t;
 

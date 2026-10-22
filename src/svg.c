@@ -21,7 +21,7 @@ void export_styles_svg(FILE *file, styles_t *styles, int center_x, int center_y)
 }
 
 /**
- * Écrit une ellipse dans un fichier SVG, sur une ligne.
+ * Écrit une ellipse dans un fichier SVG.
  *
  * @param file le fichier SVG ouvert en écriture
  * @param ellipse l'ellipse à écrire
@@ -78,10 +78,70 @@ void export_line_svg(FILE *file, line_t *line)
 }
 
 /**
+ * Écrit une polyligne dans un fichier SVG.
+ *
+ * @param file le fichier SVG ouvert en écriture
+ * @param polyline la polyligne à écrire
+ */
+void export_polyline_svg(FILE *file, polyline_t *polyline)
+{
+    int sum_x = 0;
+    int sum_y = 0;
+
+    for (int i = 0; i < polyline->count; i++)
+    {
+        sum_x = sum_x + polyline->points[i]->x;
+        sum_y = sum_y + polyline->points[i]->y;
+    }
+
+    int center_x = sum_x / polyline->count;
+    int center_y = sum_y / polyline->count;
+
+    fprintf(file, "<polyline points='");
+    for (int i = 0; i < polyline->count; i++)
+    {
+        fprintf(file, "%d,%d ", polyline->points[i]->x, polyline->points[i]->y);
+    }
+    fprintf(file, "'");
+    export_styles_svg(file, polyline->styles, center_x, center_y);
+    fprintf(file, " />\n");
+}
+
+/**
+ * Écrit un polygone dans un fichier SVG.
+ *
+ * @param file le fichier SVG ouvert en écriture
+ * @param polygon le polygone à écrire
+ */
+void export_polygon_svg(FILE *file, polygon_t *polygon)
+{
+    int sum_x = 0;
+    int sum_y = 0;
+
+    for (int i = 0; i < polygon->count; i++)
+    {
+        sum_x = sum_x + polygon->points[i]->x;
+        sum_y = sum_y + polygon->points[i]->y;
+    }
+
+    int center_x = sum_x / polygon->count;
+    int center_y = sum_y / polygon->count;
+
+    fprintf(file, "<polygon points='");
+    for (int i = 0; i < polygon->count; i++)
+    {
+        fprintf(file, "%d,%d ", polygon->points[i]->x, polygon->points[i]->y);
+    }
+    fprintf(file, "'");
+    export_styles_svg(file, polygon->styles, center_x, center_y);
+    fprintf(file, " />\n");
+}
+
+/**
  * Écrit une forme dans un fichier SVG.
  *
  * Appelle la fonction d'export qui correspond au type de la forme
- * (export_ellipse_svg, export_rectangle_svg ou export_line_svg).
+ * (export_ellipse_svg, export_rectangle_svg, export_line_svg, export_polyline_svg ou export_polygon_svg).
  *
  * @param file le fichier SVG ouvert en écriture
  * @param shape la forme à écrire
@@ -98,6 +158,12 @@ void export_shape_svg(FILE *file, shape_t *shape)
         break;
     case SHAPE_LINE:
         export_line_svg(file, shape->data.line);
+        break;
+    case SHAPE_POLYLINE:
+        export_polyline_svg(file, shape->data.polyline);
+        break;
+    case SHAPE_POLYGON:
+        export_polygon_svg(file, shape->data.polygon);
         break;
     }
 }

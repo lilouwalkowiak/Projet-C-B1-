@@ -40,7 +40,7 @@ void modify_point(point_t *point);
  */
 void print_point(point_t *point);
 
-/** Libère la mémoire d'un point .
+/** Libère la mémoire d'un point.
  *
  * @param point le point à libérer (créé avec create_point)
  */

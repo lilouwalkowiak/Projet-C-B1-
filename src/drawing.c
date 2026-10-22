@@ -42,7 +42,7 @@ drawing_t *drawing_create(void)
  * Ajoute une forme dans une case du dessin.
  *
  * Vérifie que l'index est valide et que la case est libre, puis demande
- * à l'utilisateur le type de forme (1 ellipse, 2 rectangle, 3 ligne).
+ * à l'utilisateur le type de forme (1 ellipse, 2 rectangle, 3 ligne, 4 polyligne, 5 polygone).
  * La forme créée est rangée dans la case.
  *
  * @param drawing le dessin dans lequel on ajoute la forme
@@ -62,7 +62,7 @@ void insert_shape(drawing_t *drawing, int index)
         return;
     }
 
-    int type = ask_for_int("Quel type de forme?\n\t1. Ellipse\n\t2. Rectangle\n\t3. Ligne\n\tChoix :");
+    int type = ask_for_int("Quel type de forme?\n\t1. Ellipse\n\t2. Rectangle\n\t3. Ligne\n\t4. Polyligne\n\t5. Polygone\n\tChoix :");
     shape_t *shape = NULL;
     switch (type)
     {
@@ -74,6 +74,12 @@ void insert_shape(drawing_t *drawing, int index)
         break;
     case 3:
         shape = ask_for_shape(SHAPE_LINE);
+        break;
+    case 4:
+        shape = ask_for_shape(SHAPE_POLYLINE);
+        break;
+    case 5:
+        shape = ask_for_shape(SHAPE_POLYGON);
         break;
     }
 
@@ -105,7 +111,7 @@ void modify_shape(drawing_t *drawing, int index)
 
     if (drawing->shapes[index] == NULL)
     {
-        printf("Il y a aucune forme à cet index.\n");
+        printf("Il n'y a aucune forme à cet index.\n");
         return;
     }
 
@@ -162,7 +168,7 @@ void delete_shape(drawing_t *drawing, int index)
 
     if (drawing->shapes[index] == NULL)
     {
-        printf("Il y a aucune forme à cet index.\n");
+        printf("Il n'y a aucune forme à cet index.\n");
         return;
     }
 
