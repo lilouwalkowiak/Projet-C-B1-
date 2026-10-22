@@ -4,20 +4,39 @@
  * Écrit dans un fichier SVG les attributs de style d'une forme.
  *
  * Écrit la couleur de remplissage, la couleur du contour, puis la
- * translation et la rotation. La rotation se fait autour du point
- * (center_x, center_y), qui est le centre de la forme.
+ * transformation : déplacement (translate), rotation (rotate) et
+ * inversion (scale).
+ *
+ * L'inversion est un miroir : scale(1 -1) retourne la forme de haut en bas
+ * (axe X), scale(-1 1) la retourne de gauche à droite (axe Y), scale(1 1)
+ * ne change rien. Comme scale agit autour du point (0,0), on déplace
+ * d'abord le centre de la forme en (0,0), on fait le miroir, puis on
+ * remet le centre à sa place. Le SVG applique les transformations de
+ * droite à gauche : d'abord l'inversion, puis la rotation, puis le
+ * déplacement.
  *
  * @param file le fichier SVG ouvert en écriture
  * @param styles les styles à écrire
- * @param center_x l'abscisse du centre de la forme
- * @param center_y l'ordonnée du centre de la forme
+ * @param center_x l'abscisse du centre de la forme (centre de rotation et d'inversion)
+ * @param center_y l'ordonnée du centre de la forme (centre de rotation et d'inversion)
  */
 void export_styles_svg(FILE *file, styles_t *styles, int center_x, int center_y)
 {
+    int scale_x = 1;
+    int scale_y = 1;
+    if (styles->flip == 1)
+    {
+        scale_y = -1;
+    }
+    if (styles->flip == 2)
+    {
+        scale_x = -1;
+    }
     fprintf(file, " fill='%s'", styles->fill_color);
     fprintf(file, " stroke='%s'", styles->outline_color);
     fprintf(file, " transform='translate(%d %d)", styles->translate->x, styles->translate->y);
-    fprintf(file, " rotate(%d %d %d)'", styles->rotation, center_x, center_y);
+    fprintf(file, " rotate(%d %d %d)", styles->rotation, center_x, center_y);
+    fprintf(file, " translate(%d %d) scale(%d %d) translate(%d %d)'", center_x, center_y, scale_x, scale_y, -center_x, -center_y);
 }
 
 /**
