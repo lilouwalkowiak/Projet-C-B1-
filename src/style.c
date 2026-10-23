@@ -1,5 +1,6 @@
 #include "../includes/style.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Créer les styles en mémoire.
  *
@@ -38,14 +39,14 @@ styles_t *create_styles(
  */
 styles_t *ask_for_styles(void)
 {
-    int rotation = ask_for_int("Quelle est la rotation (en degrés) que vous souhaitez? (Entrez un entier)\n");
-    char *fill_color = ask_for_string("Quelle couleur de remplissage voulez-vous?\n");
-    char *outline_color = ask_for_string("Quelle couleur de contour voulez-vous?\n");
-    point_t *translate = ask_for_point("De combien voulez-vous déplacer la forme? (Entrez un entier)\n");
-    int flip = ask_for_int("Voulez-vous inverser la forme? (0 : non, 1 : selon l'axe X, 2 : selon l'axe Y)\n");
+    int rotation = ask_for_int(PECHE "Quelle est la rotation (en degrés) que vous souhaitez? (Entrez un entier)\n" RESET);
+    char *fill_color = ask_for_string(MENTHE "Quelle couleur de remplissage voulez-vous?\n" RESET);
+    char *outline_color = ask_for_string(BLEU "Quelle couleur de contour voulez-vous?\n" RESET);
+    point_t *translate = ask_for_point(LAVANDE "De combien voulez-vous déplacer la forme? (Entrez un entier)\n" RESET);
+    int flip = ask_for_int(BLANC "Voulez-vous inverser la forme? (0 : non, 1 : selon l'axe X, 2 : selon l'axe Y)\n" RESET);
     while (flip < 0 || flip > 2)
     {
-        flip = ask_for_int("Valeur invalide. Tape 0, 1 ou 2 : ");
+        flip = ask_for_int(ROSE "Valeur invalide. Tape 0, 1 ou 2 : " RESET);
     }
     return create_styles(rotation, fill_color, outline_color, translate, flip);
 }
@@ -60,28 +61,28 @@ void modify_styles(styles_t *styles)
     int choice;
     do
     {
-        choice = ask_for_int("Chosis la modification du style : \n\t1. La couleur de remplissage\n\t2. La couleur du contour\n\t3. L'angle de rotation\n\t4. Décalage de la forme\n\t5. L'inversion de la forme\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int(LAVANDE "Chosis la modification du style : \n\t1. La couleur de remplissage\n\t2. La couleur du contour\n\t3. L'angle de rotation\n\t4. Décalage de la forme\n\t5. L'inversion de la forme\n\t0.Quitter\n Choix : " RESET);
         switch (choice)
         {
         case 1:
             free(styles->fill_color);
-            styles->fill_color = ask_for_string("Sélectionne la couleur de remplissage : ");
+            styles->fill_color = ask_for_string(MENTHE "Sélectionne la couleur de remplissage : " RESET);
             break;
         case 2:
             free(styles->outline_color);
-            styles->outline_color = ask_for_string("Sélectionne la couleur du contour : ");
+            styles->outline_color = ask_for_string(BLEU "Sélectionne la couleur du contour : " RESET);
             break;
         case 3:
-            styles->rotation = ask_for_int("Sélectionne l'angle de la rotation : ");
+            styles->rotation = ask_for_int(PECHE "Sélectionne l'angle de la rotation : " RESET);
             break;
         case 4:
             modify_point(styles->translate);
             break;
         case 5:
-            styles->flip = ask_for_int("Inversion (0 : non, 1 : selon l'axe X, 2 : selon l'axe Y) : ");
+            styles->flip = ask_for_int(BLANC "Inversion (0 : non, 1 : selon l'axe X, 2 : selon l'axe Y) : " RESET);
             while (styles->flip < 0 || styles->flip > 2)
             {
-                styles->flip = ask_for_int("Valeur invalide. Tape 0, 1 ou 2 : ");
+                styles->flip = ask_for_int(ROSE "Valeur invalide. Tape 0, 1 ou 2 : " RESET);
             }
             break;
         }

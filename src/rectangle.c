@@ -1,5 +1,6 @@
 #include "../includes/rectangle.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Créer un rectangle en mémoire.
  *
@@ -30,9 +31,9 @@ rectangle_t *create_rectangle(
  */
 rectangle_t *ask_for_rectangle(void)
 {
-    int length = ask_for_int("Quelle longueur pour le rectangle souhaitez-vous? (Entrez un entier)\n");
-    int width = ask_for_int("Quelle largeur pour le rectangle souhaitez-vous? (Entrez un entier)\n");
-    point_t *origine = ask_for_point("D'où voulez-vous que le rectangle parte?\n");
+    int length = ask_for_int(PECHE "Quelle longueur pour le rectangle souhaitez-vous? (Entrez un entier)\n" RESET);
+    int width = ask_for_int(PECHE "Quelle largeur pour le rectangle souhaitez-vous? (Entrez un entier)\n" RESET);
+    point_t *origine = ask_for_point(LAVANDE "D'où voulez-vous que le rectangle parte?\n" RESET);
     styles_t *styles = ask_for_styles();
 
     return create_rectangle(length, width, origine, styles);
@@ -48,7 +49,7 @@ void modify_rectangle(rectangle_t *rectangle)
     int choice;
     do
     {
-        choice = ask_for_int("Choisis la modification de ton rectangle : \n\t1. L'origine\n\t2. Le style\n\t3. La longueur\n\t4. La largeur\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int(LAVANDE "Choisis la modification de ton rectangle : \n\t1. L'origine\n\t2. Le style\n\t3. La longueur\n\t4. La largeur\n\t0.Quitter\n Choix : " RESET);
         switch (choice)
         {
         case 1:
@@ -58,10 +59,10 @@ void modify_rectangle(rectangle_t *rectangle)
             modify_styles(rectangle->styles);
             break;
         case 3:
-            rectangle->length = ask_for_int("Choisis la longueur du rectangle : ");
+            rectangle->length = ask_for_int(PECHE "Choisis la longueur du rectangle : " RESET);
             break;
         case 4:
-            rectangle->width = ask_for_int("Choisis la largeur du rectangle : ");
+            rectangle->width = ask_for_int(PECHE "Choisis la largeur du rectangle : " RESET);
             break;
         }
 

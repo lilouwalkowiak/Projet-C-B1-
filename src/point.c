@@ -1,5 +1,6 @@
 #include "../includes/point.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Créer un point en mémoire.
  *
@@ -24,8 +25,8 @@ point_t *create_point(int x, int y)
 point_t *ask_for_point(char *message)
 {
     printf("%s", message);
-    int x = ask_for_int("Quelle abscisse souhaitez-vous? (Entrez un entier)\n");
-    int y = ask_for_int("Quelle ordonnée souhaitez-vous? (Entrez un entier)\n");
+    int x = ask_for_int(BLEU "Quelle abscisse souhaitez-vous? (Entrez un entier)\n" RESET);
+    int y = ask_for_int(MENTHE "Quelle ordonnée souhaitez-vous? (Entrez un entier)\n" RESET);
 
     return create_point(x, y);
 }
@@ -40,14 +41,14 @@ void modify_point(point_t *point)
     int choice;
     do
     {
-        choice = ask_for_int("Choisis la modification :\n\t1. x L'abscisse\n\t2. y L'ordonnée\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int(LAVANDE "Choisis la modification :\n\t1. x L'abscisse\n\t2. y L'ordonnée\n\t0.Quitter\n Choix : " RESET);
         switch (choice)
         {
         case 1:
-            point->x = ask_for_int("Sélectionne l'abscisse x : ");
+            point->x = ask_for_int(BLEU "Sélectionne l'abscisse x : " RESET);
             break;
         case 2:
-            point->y = ask_for_int("Sélectionne l'ordonnée y : ");
+            point->y = ask_for_int(MENTHE "Sélectionne l'ordonnée y : " RESET);
             break;
         }
     } while (choice != 0);

@@ -11,6 +11,7 @@
 #include "../includes/drawing.h"
 #include "../includes/shape.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Nombre de cases du dessin : on peut ranger 50 formes au maximum. */
 #define SVG_SIZE 50
@@ -58,11 +59,11 @@ void insert_shape(drawing_t *drawing, int index)
 
     if (drawing->shapes[index] != NULL)
     {
-        printf("Il y a déjà une forme à cet index : supprime-la ou choisis un autre index.\n");
+        printf(ROSE "Il y a déjà une forme à cet index : supprime-la ou choisis un autre index.\n" RESET);
         return;
     }
 
-    int type = ask_for_int("Quel type de forme?\n\t1. Ellipse\n\t2. Rectangle\n\t3. Ligne\n\t4. Polyligne\n\t5. Polygone\n\tChoix :");
+    int type = ask_for_int(LAVANDE "Quel type de forme?\n\t1. Ellipse\n\t2. Rectangle\n\t3. Ligne\n\t4. Polyligne\n\t5. Polygone\n\tChoix :" RESET);
     shape_t *shape = NULL;
     switch (type)
     {
@@ -85,7 +86,7 @@ void insert_shape(drawing_t *drawing, int index)
 
     if (shape == NULL)
     {
-        printf("Cette forme n'existe pas.\n");
+        printf(ROSE "Cette forme n'existe pas.\n" RESET);
         return;
     }
 
@@ -105,13 +106,13 @@ void modify_shape(drawing_t *drawing, int index)
 {
     if (index < 0 || index > drawing->capacity - 1)
     {
-        printf("Index invalide.\n");
+        printf(ROSE "Index invalide.\n" RESET);
         return;
     }
 
     if (drawing->shapes[index] == NULL)
     {
-        printf("Il n'y a aucune forme à cet index.\n");
+        printf(ROSE "Il n'y a aucune forme à cet index.\n" RESET);
         return;
     }
 
@@ -145,7 +146,7 @@ void drawing_print(drawing_t *drawing)
 
     if (found == 0)
     {
-        printf("Le dessin est vide.\n");
+        printf(ROSE "Le dessin est vide.\n" RESET);
     }
 }
 
@@ -162,13 +163,13 @@ void delete_shape(drawing_t *drawing, int index)
 {
     if (index < 0 || index > drawing->capacity - 1)
     {
-        printf("Index invalide.\n");
+        printf(ROSE "Index invalide.\n" RESET);
         return;
     }
 
     if (drawing->shapes[index] == NULL)
     {
-        printf("Il n'y a aucune forme à cet index.\n");
+        printf(ROSE "Il n'y a aucune forme à cet index.\n" RESET);
         return;
     }
 

@@ -1,5 +1,6 @@
 #include "../includes/polyline.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Créer une polyligne en mémoire.
  *
@@ -24,16 +25,16 @@ polyline_t *create_polyline(point_t **points, int count, styles_t *styles)
  */
 polyline_t *ask_for_polyline(void)
 {
-    int count = ask_for_int("Combien de points pour la polyligne? (au moins 2)\n");
+    int count = ask_for_int(PECHE "Combien de points pour la polyligne? (au moins 2)\n" RESET);
     while (count < 2)
     {
-        count = ask_for_int("Il faut au moins 2 points. Recommence : ");
+        count = ask_for_int(ROSE "Il faut au moins 2 points. Recommence : " RESET);
     }
 
     point_t **points = malloc(sizeof(point_t *) * count);
     for (int i = 0; i < count; i++)
     {
-        printf("Point numéro %d\n", i + 1);
+        printf(MENTHE "Point numéro %d\n" RESET, i + 1);
         points[i] = ask_for_point("");
     }
 
@@ -53,15 +54,15 @@ void modify_polyline(polyline_t *polyline)
     int number;
     do
     {
-        choice = ask_for_int("Choisis la modification de la polyligne : \n\t1. Un point\n\t2. Le style\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int(LAVANDE "Choisis la modification de la polyligne : \n\t1. Un point\n\t2. Le style\n\t0.Quitter\n Choix : " RESET);
         switch (choice)
         {
         case 1:
             printf("La polyligne a %d points.\n", polyline->count);
-            number = ask_for_int("Quel point veux-tu modifier? (son numéro) : ");
+            number = ask_for_int(PECHE "Quel point veux-tu modifier? (son numéro) : " RESET);
             if (number < 1 || number > polyline->count)
             {
-                printf("Numéro invalide.\n");
+                printf(ROSE "Numéro invalide.\n" RESET);
             }
             else
             {

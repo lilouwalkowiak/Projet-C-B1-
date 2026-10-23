@@ -1,5 +1,6 @@
 #include "../includes/line.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Créer une ligne droite en mémoire.
  *
@@ -27,8 +28,8 @@ line_t *create_line(
  */
 line_t *ask_for_line(void)
 {
-    point_t *start = ask_for_point("D'où le point de départ de la ligne doit commencer?\n");
-    point_t *finish = ask_for_point("D'où le point d'arrivée de la ligne doit finir?\n");
+    point_t *start = ask_for_point(LAVANDE "D'où le point de départ de la ligne doit commencer?\n" RESET);
+    point_t *finish = ask_for_point(LAVANDE "D'où le point d'arrivée de la ligne doit finir?\n" RESET);
     styles_t *styles = ask_for_styles();
 
     return create_line(start, finish, styles);
@@ -43,7 +44,7 @@ void modify_line(line_t *line)
     int choice;
     do
     {
-        choice = ask_for_int("Choisis la modification de la ligne : \n\t1. Le point de départ\n\t2. Le point d'arrivée\n\t3. Le style\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int(LAVANDE "Choisis la modification de la ligne : \n\t1. Le point de départ\n\t2. Le point d'arrivée\n\t3. Le style\n\t0.Quitter\n Choix : " RESET);
         switch (choice)
         {
         case 1:

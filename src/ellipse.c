@@ -1,5 +1,6 @@
 #include "../includes/ellipse.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Créer une ellipse en mémoire.
  *
@@ -29,9 +30,9 @@ ellipse_t *create_ellipse(int rx,
  */
 ellipse_t *ask_for_ellipse(void)
 {
-    int rx = ask_for_int("Quelle mesure voulez-vous donner à votre rayon horizontal? (Entrez un entier)\n");
-    int ry = ask_for_int("Quelle mesure voulez-vous donner à votre rayon vertical? (Entrez un entier)\n");
-    point_t *center = ask_for_point("Quelle mesure souhaitez-vous pour le centre de cette forme?\n");
+    int rx = ask_for_int(PECHE "Quelle mesure voulez-vous donner à votre rayon horizontal? (Entrez un entier)\n" RESET);
+    int ry = ask_for_int(PECHE "Quelle mesure voulez-vous donner à votre rayon vertical? (Entrez un entier)\n" RESET);
+    point_t *center = ask_for_point(LAVANDE "Quelle mesure souhaitez-vous pour le centre de cette forme?\n" RESET);
     styles_t *styles = ask_for_styles();
 
     return create_ellipse(rx, ry, center, styles);
@@ -47,7 +48,7 @@ void modify_ellipse(ellipse_t *ellipse)
     int choice;
     do
     {
-        choice = ask_for_int("Choisis la modification de ton ellipse : \n\t1. Le centre\n\t2. Le style\n\t3. Le premier rayon\n\t4. Le second rayon\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int(LAVANDE "Choisis la modification de ton ellipse : \n\t1. Le centre\n\t2. Le style\n\t3. Le premier rayon\n\t4. Le second rayon\n\t0.Quitter\n Choix : " RESET);
         switch (choice)
         {
         case 1:
@@ -57,10 +58,10 @@ void modify_ellipse(ellipse_t *ellipse)
             modify_styles(ellipse->styles);
             break;
         case 3:
-            ellipse->rx = ask_for_int("Choisis le premier rayon de l'ellipse : ");
+            ellipse->rx = ask_for_int(PECHE "Choisis le premier rayon de l'ellipse : " RESET);
             break;
         case 4:
-            ellipse->ry = ask_for_int("Choisis le second rayon de l'ellipse : ");
+            ellipse->ry = ask_for_int(PECHE "Choisis le second rayon de l'ellipse : " RESET);
             break;
         }
 

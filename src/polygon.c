@@ -1,5 +1,6 @@
 #include "../includes/polygon.h"
 #include "../includes/utils.h"
+#include "../includes/colors.h"
 
 /** Créer un polygone en mémoire.
  *
@@ -24,16 +25,16 @@ polygon_t *create_polygon(point_t **points, int count, styles_t *styles)
  */
 polygon_t *ask_for_polygon(void)
 {
-    int count = ask_for_int("Combien de points pour le polygone? (au moins 3)\n");
+    int count = ask_for_int(PECHE "Combien de points pour le polygone? (au moins 3)\n" RESET);
     while (count < 3)
     {
-        count = ask_for_int("Il faut au moins 3 points. Recommence : ");
+        count = ask_for_int(ROSE "Il faut au moins 3 points. Recommence : " RESET);
     }
 
     point_t **points = malloc(sizeof(point_t *) * count);
     for (int i = 0; i < count; i++)
     {
-        printf("Point numéro %d\n", i + 1);
+        printf(MENTHE "Point numéro %d\n" RESET, i + 1);
         points[i] = ask_for_point("");
     }
 
@@ -53,15 +54,15 @@ void modify_polygon(polygon_t *polygon)
     int number;
     do
     {
-        choice = ask_for_int("Choisis la modification du polygone : \n\t1. Un point\n\t2. Le style\n\t0.Quitter\n Choix : ");
+        choice = ask_for_int(LAVANDE "Choisis la modification du polygone : \n\t1. Un point\n\t2. Le style\n\t0.Quitter\n Choix : " RESET);
         switch (choice)
         {
         case 1:
             printf("Le polygone a %d points.\n", polygon->count);
-            number = ask_for_int("Quel point veux-tu modifier? (son numéro) : ");
+            number = ask_for_int(PECHE "Quel point veux-tu modifier? (son numéro) : " RESET);
             if (number < 1 || number > polygon->count)
             {
-                printf("Numéro invalide.\n");
+                printf(ROSE "Numéro invalide.\n" RESET);
             }
             else
             {

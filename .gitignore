@@ -6,3 +6,9 @@
 # Il est créé par "make build" à partir des fichiers .c.
 # On ne l'envoie pas : n'importe qui peut le recréer en lançant "make build".
 main
+
+# Fichiers objets : créés par le compilateur à chaque make build, inutiles sur GitHub
+*.o
+
+# Programmes compilés au format .bin : on versionne le code, pas le résultat de la compilation
+*.bin
